@@ -4,3 +4,5 @@ vendor/
 cache/
 composer.lock
 .DS_Store
+/public/
+/bin/

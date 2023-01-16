@@ -9,18 +9,24 @@
   ],
   "type": "typo3-cms-extension",
   "license": "GPL-2.0-or-later",
+  "config": {
+    "bin-dir": "bin",
+    "process-timeout": 0,
+    "sort-packages": true,
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable" : true,
   "require": {
+    "php": ">=8.0",
     "typo3/cms-core": "^11.5.6"
   },
   "autoload": {
     "psr-4": {
       "HobbyFrosch\\CNSlider\\": "Classes/"
-    }
-  },
-  "config": {
-    "allow-plugins": {
-      "typo3/cms-composer-installers": true,
-      "typo3/class-alias-loader": true
     }
   }
 }
