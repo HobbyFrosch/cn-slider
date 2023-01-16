@@ -6,6 +6,10 @@
  * Time: 09:14
  */
 
+use TYPO3\CMS\Core\Resource\AbstractFile;
+use TYPO3\CMS\Core\Resource\File;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 return [
 
     'ctrl' => [
@@ -24,7 +28,6 @@ return [
     ],
 
     'columns' => [
-
         'tx_cnslider_event_name' => [
             'label' => 'Name der Veranstaltung',
             'config' => [
@@ -33,7 +36,6 @@ return [
                 'eval' => 'required'
             ]
         ],
-
         'tx_cnslider_event_content' => [
             'label' => 'Beschreibung der Veranstaltung',
             'config' => [
@@ -43,7 +45,6 @@ return [
             ],
             'defaultExtras' => 'richtext[]'
         ],
-
         'tx_cnslider_event_location_name' => [
             'label' => 'Name des Veranstaltungsorts',
             'config' => [
@@ -51,7 +52,6 @@ return [
                 'size' => 255,
             ]
         ],
-
         'tx_cnslider_event_date' => [
             'label' => 'Datum & Uhrzeit der Veranstaltung',
             'config' => [
@@ -60,7 +60,6 @@ return [
                 'eval' => 'datetime',
             ]
         ],
-
         'tx_cnslider_event_location' => [
             'label' => 'Adresse der Veranstaltung',
             'config' => [
@@ -68,7 +67,6 @@ return [
                 'size' => 255,
             ]
         ],
-
         'tx_cnslider_event_highlight' => [
             'label' => 'Veranstaltung hervorheben',
             'config' => [
@@ -76,10 +74,9 @@ return [
                 'default' => '0'
             ]
         ],
-
         'tx_cnslider_event_image' => [
             'label' => 'Flyer der Veranstaltung',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                 'image', [
                 'appearance' => [
                     'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference',
@@ -90,15 +87,15 @@ return [
                 'eval' => 'required',
                 'overrideChildTca' => [
                     'types' => [
-                            '0' => [
+                        '0' => [
                                 'showitem' => '
-                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
+                                    --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;;filePalette'
                             ],
-                                \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                            AbstractFile::FILETYPE_TEXT => [
                                 'showitem' => '
-                                --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
-                                --palette--;;filePalette'
+                                    --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
+                                    --palette--;;filePalette'
                             ],
                         ],
                     ],

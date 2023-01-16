@@ -1,5 +1,5 @@
 <?php
-namespace HobbyFrosch\CNSlider\DataProcessing;
+namespace HF\CNSlider\DataProcessing;
 
 /*
  *  Copyright notice
@@ -20,6 +20,8 @@ namespace HobbyFrosch\CNSlider\DataProcessing;
  * The TYPO3 project - inspiring people to share!
  */
 
+use Doctrine\DBAL\Exception;
+use PDO;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 use TYPO3\CMS\Core\Database\ConnectionPool;
@@ -36,8 +38,9 @@ class EventProcessor implements DataProcessorInterface {
      * @param array $processorConfiguration The configuration of this processor
      * @param array $processedData Key/value store of processed data (e.g. to be passed to a Fluid View)
      * @return array the processed data as key/value store
+     * @throws Exception
      */
-    public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData) {
+    public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData): array {
 
         $items = array();
 
@@ -58,10 +61,10 @@ class EventProcessor implements DataProcessorInterface {
                 $queryBuilder->expr()->eq('sys_file.uid', $queryBuilder->quoteIdentifier('sys_file_reference.uid_local'))
             )
             ->where (
-                $queryBuilder->expr()->eq('tx_cnslider_event.tt_content_id', $queryBuilder->createNamedParameter($cObj->data['uid'], \PDO::PARAM_INT))
+                $queryBuilder->expr()->eq('tx_cnslider_event.tt_content_id', $queryBuilder->createNamedParameter($cObj->data['uid'], PDO::PARAM_INT))
             )
             ->andWhere (
-                $queryBuilder->expr()->eq('sys_file_reference.tablenames', $queryBuilder->createNamedParameter('tx_cnslider_event', \PDO::PARAM_STR))
+                $queryBuilder->expr()->eq('sys_file_reference.tablenames', $queryBuilder->createNamedParameter('tx_cnslider_event', PDO::PARAM_STR))
             )
             ->orderBy('tx_cnslider_event.sorting')
             ->execute()
@@ -80,7 +83,11 @@ class EventProcessor implements DataProcessorInterface {
         return $processedData;
     }
 
-    public function replace($string) {
+    /**
+     * @param $string
+     * @return string
+     */
+    public function replace($string) : string {
 
         $string = str_replace("ä", "ae", $string);
         $string = str_replace("ü", "ue", $string);
@@ -88,9 +95,8 @@ class EventProcessor implements DataProcessorInterface {
         $string = str_replace("ß", "ss", $string);
         $string = str_replace("´", "", $string);
         $string = str_replace(" ", "_", $string);
-        $string = str_replace("-", "", $string);
 
-        return $string;
+        return str_replace("-", "", $string);
     }
 
 }

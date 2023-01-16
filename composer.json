@@ -1,38 +1,38 @@
 {
-  "name": "hobbyfrosch/cnslider",
-  "description": "Bla bla bla",
+  "name": "hobbyfrosch/cn-slider",
+  "description": "Silder für Chor-Nection",
+  "type": "typo3-cms-extension",
   "authors": [
     {
       "name": "Ronny Krämer",
-      "email": "info@ronnykraemer.de"
+      "email": "info@ronnykramer.de",
+      "homepage": "https://www.ronnykraemer.de",
+      "role": "developer"
     }
   ],
-  "type": "typo3-cms-extension",
-  "license": "GPL-2.0-or-later",
-  "config": {
-    "bin-dir": "bin",
-    "process-timeout": 0,
-    "sort-packages": true,
-    "allow-plugins": {
-      "typo3/cms-composer-installers": true,
-      "typo3/class-alias-loader": true
-    }
-  },
   "require": {
-    "php": ">=7.4.1",
-    "typo3/cms-core": "^11.5.6"
+    "php": "~7.4.0 || ~8.0.0 || ~8.1.0",
+    "typo3/cms-core": "^11.5.2 || ^12.0@dev",
+    "typo3/cms-extbase": "^11.5.2 || ^12.0@dev",
+    "typo3/cms-fluid": "^11.5.2 || ^12.0@dev",
+    "typo3/cms-frontend": "^11.5.2 || ^12.0@dev",
+    "ext-pdo": "*"
   },
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {
-      "HobbyFrosch\\CNSlider\\": "Classes/"
+      "HF\\CNSlider\\": "Classes/"
     }
   },
   "extra": {
     "typo3/cms": {
-      "extension-key": "cn_slider"
+      "extension-key": "cnslider"
     }
   },
-  "replace": {
-    "typo3-ter/bootstrap-package": "self.version"
+  "config": {
+    "allow-plugins": {
+      "typo3/class-alias-loader": true,
+      "typo3/cms-composer-installers": true
+    }
   }
 }

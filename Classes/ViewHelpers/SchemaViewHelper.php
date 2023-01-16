@@ -18,7 +18,7 @@
  * The TYPO3 project - inspiring people to share!
  */
 
-namespace HobbyFrosch\CNSlider\ViewHelpers;
+namespace HF\CNSlider\ViewHelpers;
 
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3\CMS\Core\Database\ConnectionPool;

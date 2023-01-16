@@ -1,95 +1,95 @@
 <?php
 
-$tx_cnslider = array (
-    'tx_cnslider_height' => [
-        'label' => 'Höhe',
+$tx_cnslider = [
+    'tx_cnslider_height'       => [
+        'label'  => 'Höhe',
         'config' => [
             'renderType' => 'selectSingle',
-            'type' => 'select',
-            'size' => 1,
-            'items' => [
+            'type'       => 'select',
+            'size'       => 1,
+            'items'      => [
                 ['Volle Höhe', 'fullScreenSlider'],
                 ['Halbe höhe', 'halfScreenSlider']
             ]
         ]
     ],
     'tx_cnslider_show_in_menu' => [
-        'label' => 'Im Menu anzeigen',
+        'label'  => 'Im Menu anzeigen',
         'config' => [
-            'type' => 'check',
+            'type'    => 'check',
             'default' => '1'
 
         ]
     ],
-    'tx_cnslider_nav_title' => [
-        'label' => 'Bezeichnung in der Navigation',
+    'tx_cnslider_nav_title'    => [
+        'label'  => 'Bezeichnung in der Navigation',
         'config' => [
             'type' => 'input',
             'size' => 255
         ]
     ],
-    'tx_cnslider_video_url' => [
-        'label' => 'URL des Videos',
+    'tx_cnslider_video_url'    => [
+        'label'  => 'URL des Videos',
         'config' => [
             'type' => 'input',
             'size' => 255,
             'eval' => 'required'
         ]
     ],
-    'bodytext' => [
-        'label' => 'Text',
-        'config' => array(
+    'bodytext'                 => [
+        'label'         => 'Text',
+        'config'        => [
             'type' => 'text',
             'cols' => 40,
             'rows' => 6
-        ),
+        ],
         'defaultExtras' => 'richtext[]'
     ],
 
     'tx_cnslider_member_picture' => [
-        'label' => 'Beschreibung',
+        'label'  => 'Beschreibung',
         'config' => [
-            'type' => 'inline',
-            'foreign_table' => 'tx_cnslider_member_picture',
-            'foreign_field' => 'tt_content_id',
-            'foreign_label' => 'tx_cnslider_member_name',
+            'type'           => 'inline',
+            'foreign_table'  => 'tx_cnslider_member_picture',
+            'foreign_field'  => 'tt_content_id',
+            'foreign_label'  => 'tx_cnslider_member_name',
             'foreign_sortby' => 'sorting',
-            'appearance' => [
-                'useSortable' => 1,
-                'collapseAll' => true,
-                'expandSingle' => true,
+            'appearance'     => [
+                'useSortable'        => 1,
+                'collapseAll'        => true,
+                'expandSingle'       => true,
                 'newRecordLinkTitle' => 'Neues Profilbild hinzufügen',
-                'enabledControls ' => true,
+                'enabledControls '   => true,
             ],
-            'maxitems' => 1000,
-            'minitems' => 0,
+            'maxitems'       => 1000,
+            'minitems'       => 0,
         ]
     ],
 
     'tx_cnslider_event' => [
-        'label' => 'Beschreibung',
+        'label'  => 'Beschreibung',
         'config' => [
-            'type' => 'inline',
-            'foreign_table' => 'tx_cnslider_event',
-            'foreign_field' => 'tt_content_id',
-            'foreign_label' => 'tx_cnslider_event_name',
+            'type'           => 'inline',
+            'foreign_table'  => 'tx_cnslider_event',
+            'foreign_field'  => 'tt_content_id',
+            'foreign_label'  => 'tx_cnslider_event_name',
             'foreign_sortby' => 'sorting',
-            'appearance' => [
-                'useSortable' => 1,
-                'collapseAll' => true,
-                'expandSingle' => true,
+            'appearance'     => [
+                'useSortable'        => 1,
+                'collapseAll'        => true,
+                'expandSingle'       => true,
                 'newRecordLinkTitle' => 'Neue Veranstaltung hinzufügen',
-                'enabledControls ' => true,
+                'enabledControls '   => true,
             ],
-            'maxitems' => 1000,
-            'minitems' => 0,
+            'maxitems'       => 1000,
+            'minitems'       => 0,
         ]
     ]
 
-);
+];
 
 $tcaTtContent = [
-    'types' => [
+    'types'   => [
         'backgroundSlider' => [
             'showitem' => '--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                            header; Titel (Wird nicht angezeigt),
@@ -101,7 +101,7 @@ $tcaTtContent = [
                            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended'
 
         ],
-        'contentSlider' => [
+        'contentSlider'    => [
             'showitem' => '--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                            tx_cnslider_show_in_menu, In Menü anzeigen,
                            tx_cnslider_nav_title, Bezeichnung in der Navigation,
@@ -112,14 +112,14 @@ $tcaTtContent = [
                            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
                            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended'
         ],
-        'eventSlider' => [
+        'eventSlider'      => [
             'showitem' => '--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                            tx_cnslider_show_in_menu, In Menü anzeigen,
                            tx_cnslider_nav_title, Bezeichnung in der Navigation,
                            header; Überschrift,
                            tx_cnslider_event, Veranstaltung hinzufügen'
         ],
-        'gallerySlider' => [
+        'gallerySlider'    => [
             'showitem' => '--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                            tx_cnslider_show_in_menu, In Menü anzeigen,
                            tx_cnslider_nav_title, Bezeichnung in der Navigation,
@@ -130,7 +130,7 @@ $tcaTtContent = [
                            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
                            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended'
         ],
-        'videoSlider' => [
+        'videoSlider'      => [
             'showitem' => '--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                            header; Titel (Wird nicht angezeigt),
                            tx_cnslider_height;Höhe des Sliders,
@@ -140,7 +140,7 @@ $tcaTtContent = [
                            --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access,
                            --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.extended'
         ],
-        'contactSlider' => [
+        'contactSlider'    => [
             'showitem' => '--palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.general;general,
                            tx_cnslider_show_in_menu, In Menü anzeigen,
                            header; Titel (Wird nicht angezeigt),
@@ -162,27 +162,27 @@ $tcaTtContent = [
                         'backgroundSlider',
                         'EXT:cnslider/Resources/Public/Images/Backend/ContentElements/VideoContent.png'
                     ],
-                    'videoSlider' => [
+                    'videoSlider'      => [
                         'Slider mit Hintergrundvideo',
                         'videoSlider',
                         'EXT:cnslider/Resources/Public/Images/Backend/ContentElements/GalleryContent.png'
                     ],
-                    'contentSlider' => [
+                    'contentSlider'    => [
                         'Slider mit Text',
                         'contentSlider',
                         'EXT:cnslider/Resources/Public/Images/Backend/ContentElements/TextContent.png'
                     ],
-                    'eventSlider' => [
+                    'eventSlider'      => [
                         'Slider für Termine',
                         'eventSlider',
                         'EXT:cnslider/Resources/Public/Images/Backend/ContentElements/EventContent.png'
                     ],
-                    'gallerySlider' => [
+                    'gallerySlider'    => [
                         'Slider für Chorbilder',
                         'gallerySlider',
                         'EXT:cnslider/Resources/Public/Images/Backend/ContentElements/GalleryContent.png'
                     ],
-                    'contactSlider' => [
+                    'contactSlider'    => [
                         'Slider für Kontakt',
                         'contactSlider',
                         'EXT:cnslider/Resources/Public/Images/Backend/ContentElements/GalleryContent.png'
