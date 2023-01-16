@@ -26,5 +26,10 @@
     "psr-4": {
       "HobbyFrosch\\CNSlider\\": "Classes/"
     }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "cn_slider"
+    }
   }
 }
