@@ -1,0 +1,26 @@
+{
+  "name": "rk/cnslider",
+  "description": "Bla bla bla",
+  "authors": [
+    {
+      "name": "Ronny Krämer",
+      "email": "info@ronnykraemer.de"
+    }
+  ],
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "typo3/cms-core": "^11.5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "RK\\CNSlider\\": "Classes/"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true
+    }
+  }
+}

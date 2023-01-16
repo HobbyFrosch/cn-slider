@@ -1,0 +1,98 @@
+# Load default processing options
+imports:
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+# Add configuration for the editor
+# For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
+editor:
+  config:
+    contentsCss: "EXT:cnslider/Resources/Public/CSS/ck.css"
+    stylesSet:
+      - { name: "Bild links", element: "img", attributes: { class: "float-left img-responsive"} }
+      - { name: "Bild rechts", element: "img", attributes: { class: "float-right img-responsive"} }
+      - { name: "Socialmedia", element: "div", attributes: { class: "socialbar"} }
+      - { name: "Blocksatz mit Silbentrennung", element: "p", attributes: { class: "text-justify hyphenate"} }
+
+    format_tags: "p;h2"
+
+    toolbarGroups:
+      - { name: 'document', groups: [ 'mode', 'document', 'doctools' ] }
+      - { name: 'clipboard', groups: [ 'clipboard', 'undo' ] }
+      - { name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] }
+      - { name: 'forms', groups: [ 'forms' ] }
+      - { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] }
+      - { name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi', 'paragraph' ] }
+      - { name: 'links', groups: [ 'links' ] }
+      - { name: 'insert', groups: [ 'insert' ] }
+      - { name: 'styles', groups: [ 'styles' ] }
+      - { name: 'colors', groups: [ 'colors' ] }
+      - { name: 'tools', groups: [ 'tools' ] }
+      - { name: 'others', groups: [ 'others' ] }
+      - { name: 'about', groups: [ 'about' ] }
+
+
+    justifyClasses:
+      - text-left
+      - text-center
+      - text-right
+      - text-justify
+
+    extraPlugins:
+      - justify
+
+    #removePlugins:
+    #  - image
+
+    removeButtons:
+     - Source
+     - Save
+     - NewPage
+     - Preview
+     - Print
+     - Templates
+     - Undo
+     - Redo
+     - Find
+     - SelectAll
+     - Form
+     - Checkbox
+     - Radio
+     - TextField
+     - Textarea
+     - Select
+     - Button
+     - ImageButton
+     - HiddenField
+     - Italic
+     - Underline
+     - Strike
+     - Subscript
+     - Superscript
+     - RemoveFormat
+     - CopyFormatting
+     - NumberedList
+     - BulletedList
+     - Indent
+     - Outdent
+     - Blockquote
+     - CreateDiv
+     - BidiLtr
+     - BidiRtl
+     - Language
+     - Anchor
+     - Flash
+     - Table
+     - HorizontalRule
+     - Smiley
+     - SpecialChar
+     - PageBreak
+     - Iframe
+     - Font
+     - FontSize
+     - TextColor
+     - ShowBlocks
+     - Maximize
+     - About
+

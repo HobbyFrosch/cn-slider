@@ -1,0 +1,37 @@
+{namespace rk=RK\CNSlider\ViewHelpers}
+
+<div id="{rk:Common(content: data.header)}_{data.uid}" class="row slider contentSlider" data-jarallax='{"speed": 2.0, "scroll-opacity": 0.5}'>
+    <div class="col-lg-12 col-md-12 col-lg-12">
+        <div class="grid-wrap">
+            <article>
+                <header>
+                    <h1>{data.header}</h1>
+                </header>
+
+                <ul class="grid swipe-down" id="gridStimmen">
+                    <f:for each="{items}" as="item">
+                        <li>
+                            <a href="#pictures_{item.popupid}" title="{item.tx_cnslider_member_name}">
+                                <img src="fileadmin{item.identifier}" alt="{item.tx_cnslider_member_name}" class="img-responsive"/>
+                                <h2>{item.tx_cnslider_member_name}</h2>
+                            </a>
+                        </li>
+                    </f:for>
+                </ul>
+            </article>
+        </div>
+    </div>
+</div>
+
+<f:for each="{items}" as="item">
+    <div title="{item.tx_cnslider_member_name}" id="pictures_{item.popupid}" class="row white-popup-block mfp-hide">
+        <div class="col-lg-12 col-md-12 col-lg-12">
+            <article>
+                <header>
+                    <h1>{item.tx_cnslider_member_name}</h1>
+                </header>
+                <f:format.raw><img src="fileadmin{item.identifier}" alt="{item.tx_cnslider_member_name}" class="float-left img-responsive"/>{item.tx_cnslider_member_description}</f:format.raw>
+            </article>
+        </div>
+    </div>
+</f:for>

@@ -1,0 +1,63 @@
+# Hintergund #
+tt_content.backgroundSlider = FLUIDTEMPLATE
+tt_content.backgroundSlider {
+	file = EXT:cnslider/Resources/Private/Templates/BackgroundSlider.html
+	variables {
+		backgroundImage = FILES
+        backgroundImage {
+			references {
+				table = tt_content
+				fieldName = image
+			}
+
+			renderObj = IMG_RESOURCE
+			renderObj {
+				file.import.data = file:current:publicUrl
+				file.treatIdAsReference = 1
+			}
+		}
+	}
+}
+
+# Veranstaltungen #
+tt_content.eventSlider = FLUIDTEMPLATE
+tt_content.eventSlider {
+    file = EXT:cnslider/Resources/Private/Templates/EventSlider.html
+    dataProcessing {
+        10 = RK\CNSlider\DataProcessing\EventProcessor
+    }
+}
+
+tt_content.contactSlider = FLUIDTEMPLATE
+tt_content.contactSlider {
+    file = EXT:cnslider/Resources/Private/Templates/ContactSlider.html
+}
+
+# Profilbilder #
+tt_content.gallerySlider = FLUIDTEMPLATE
+tt_content.gallerySlider {
+    file = EXT:cnslider/Resources/Private/Templates/GallerySlider.html
+    dataProcessing {
+        10 = RK\CNSlider\DataProcessing\MemberPictureProcessor
+    }
+}
+
+# text #
+tt_content.contentSlider = FLUIDTEMPLATE
+tt_content.contentSlider {
+    file = EXT:cnslider/Resources/Private/Templates/ContentSlider.html
+}
+
+# Hintergrundvideo #
+tt_content.videoSlider = FLUIDTEMPLATE
+tt_content.videoSlider {
+    file = EXT:cnslider/Resources/Private/Templates/VideoSlider.html
+}
+
+#json-ld
+page.headerData.669 = USER
+page.headerData.669.userFunc = RK\CNSlider\Service\JsonLDRenderService->render
+
+#google analytics
+page.headerData.1200 = USER
+page.headerData.1200.userFunc = RK\CNSlider\Service\GoogleAnalyticsService->render

@@ -1,0 +1,63 @@
+{namespace rk=RK\CNSlider\ViewHelpers}
+
+<div id="{rk:Common(content: data.header)}_{data.uid}" class="row slider contentSlider" data-jarallax='{"speed": 0.5, "scroll-opacity": 1.5}'>
+    <div class="col-lg-12 col-md-12 col-lg-12">
+        <article class="text-content">
+            <header>
+                <h1>{data.header}</h1>
+            </header>
+        </article>
+        <f:for each="{items}" as="item">
+            <div class="eventPopup col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <a href="#event_{item.popupid}">
+                    <div class="event">
+                        <div class="eventImage">
+                            <img src="fileadmin{item.identifier}" alt="{item.tx_cnslider_event_name}"/>
+                        </div>
+                        <div class="eventDescription">
+                            <article>
+                                <header>
+                                    <h2>{item.tx_cnslider_event_name}</h2>
+                                </header>
+                                <p>
+                                    Das Konzert findet am <f:format.date format="d.m.Y">{item.tx_cnslider_event_date}</f:format.date>
+                                    um <f:format.date format="H:i">{item.tx_cnslider_event_date}</f:format.date> Uhr
+                                    in {item.tx_cnslider_event_location_name} - {item.tx_cnslider_event_location} statt.
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </f:for>
+    </div>
+</div>
+
+<f:for each="{items}" as="item">
+    <div id="event_{item.popupid}" title="{item.tx_cnslider_event_name}" class="eventPopupBox row white-popup-block mfp-hide">
+        <div class="col-lg-12 col-md-12 col-lg-12">
+            <article>
+                <header>
+                    <h1>{item.tx_cnslider_event_name}</h1>
+                </header>
+                <f:format.raw>
+                    <img src="fileadmin{item.identifier}" alt="{item.tx_cnslider_event_name}" class="float-left img-responsive"/>
+                        {item.tx_cnslider_event_content}
+                </f:format.raw>
+            </article>
+            <div class="row">
+                <h2 class="eventPopupBox">Termin</h2>
+                <p class="text-justify">
+                    Das Konzert findet am <f:format.date format="d.m.Y">{item.tx_cnslider_event_date}</f:format.date>
+                    um <f:format.date format="H:i">{item.tx_cnslider_event_date}</f:format.date> Uhr
+                    in {item.tx_cnslider_event_location_name} - {item.tx_cnslider_event_location} statt.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 responsiveContainer">
+                    <iframe style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC22VPUW8Ay9-vOuOmSoW7f5pCrW0rWseA&q={item.google}" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</f:for>
