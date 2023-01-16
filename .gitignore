@@ -1,0 +1,6 @@
+.idea/
+.git/
+vendor/
+cache/
+composer.lock
+.DS_Store
