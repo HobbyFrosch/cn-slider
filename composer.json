@@ -31,5 +31,8 @@
     "typo3/cms": {
       "extension-key": "cn_slider"
     }
+  },
+  "replace": {
+    "typo3-ter/bootstrap-package": "self.version"
   }
 }
