@@ -1,5 +1,5 @@
 <?php
-namespace RK\CNSlider\DataProcessing;
+namespace HobbyFrosch\CNSlider\DataProcessing;
 
 /*
  *  Copyright notice
@@ -24,7 +24,6 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\DatabaseConnection;
-use TYPO3\CMS\Core\Database\Query\QueryBuilder;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class EventProcessor implements DataProcessorInterface {

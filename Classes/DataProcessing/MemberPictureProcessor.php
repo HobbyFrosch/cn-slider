@@ -1,5 +1,5 @@
 <?php
-namespace RK\CNSlider\DataProcessing;
+namespace HobbyFrosch\CNSlider\DataProcessing;
 
 /*
  *  Copyright notice

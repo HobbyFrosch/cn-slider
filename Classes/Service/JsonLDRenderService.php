@@ -6,7 +6,7 @@
  * Time: 15:40
  */
 
-namespace RK\CNSlider\Service;
+namespace HobbyFrosch\CNSlider\Service;
 
 /*
  *  Copyright notice

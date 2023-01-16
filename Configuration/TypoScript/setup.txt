@@ -56,8 +56,8 @@ tt_content.videoSlider {
 
 #json-ld
 page.headerData.669 = USER
-page.headerData.669.userFunc = RK\CNSlider\Service\JsonLDRenderService->render
+page.headerData.669.userFunc = HobbyFrosch\CNSlider\Service\JsonLDRenderService->render
 
 #google analytics
 page.headerData.1200 = USER
-page.headerData.1200.userFunc = RK\CNSlider\Service\GoogleAnalyticsService->render
+page.headerData.1200.userFunc = HobbyFrosch\CNSlider\Service\GoogleAnalyticsService->render
