@@ -22,6 +22,7 @@ namespace HF\CNSlider\ViewHelpers;
 
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 
@@ -33,7 +34,7 @@ class SchemaViewHelper extends AbstractViewHelper {
     protected $escapeOutput = false;
 
     /**
-     * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
+     * @var ContentObjectRenderer
      * @inject
      */
     protected $contentObject;
@@ -59,12 +60,19 @@ class SchemaViewHelper extends AbstractViewHelper {
 
     }
 
-    private function convertTimestamp($timestamp) {
+    /**
+     * @param float $timestamp
+     * @return string
+     */
+    private function convertTimestamp(float $timestamp) : string {
         return gmdate("Y-m-d H:m", $timestamp);
     }
 
-    private function getAuthor($cruser_id) {
-        $row = array();
+    /**
+     * @param string $cruser_id
+     * @return string
+     */
+    private function getAuthor(string $cruser_id) : string {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('be_users');
         $row = $queryBuilder
             ->select('realName')
@@ -72,8 +80,7 @@ class SchemaViewHelper extends AbstractViewHelper {
             ->where (
                 $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($cruser_id, \PDO::PARAM_INT))
             )
-            ->execute()
-            ->fetchAll();
+            ->executeQuery();
 
         return $row[0]['realName'];
 

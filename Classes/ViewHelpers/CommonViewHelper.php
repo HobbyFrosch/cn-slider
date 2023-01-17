@@ -29,23 +29,18 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 class CommonViewHelper extends AbstractViewHelper {
 
     /**
-     * @var bool
+     * @return void
      */
-    protected $escapeOutput = false;
+    public function initializeArguments() {
+        $this->registerArgument('content', 'string', 'content to be rendered', true);
+    }
 
     /**
-     * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
-     * @inject
+     * @return string
      */
-    protected $contentObject;
+    public function render() {
 
-    /**
-     * Parse a content element
-     *
-     * @param string $content UID of any content element
-     * @return string Parsed Content Element
-     */
-    public function render($content) {
+        $content = $this->arguments['content'];
 
         $content = str_replace("ä", "ae", $content);
         $content = str_replace("ü", "ue", $content);
@@ -55,9 +50,7 @@ class CommonViewHelper extends AbstractViewHelper {
         $content = str_replace("-", "", $content);
 	    $content = str_replace("&", "", $content);
 
-        $content = strtolower($content);
-
-        return $content;
+        return strtolower($content);
 
     }
 }
