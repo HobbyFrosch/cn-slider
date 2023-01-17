@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Dr.Hofmann
- * Date: 16.12.2017
- * Time: 14:28
- */
 
 if (!defined('TYPO3_MODE')) {
     die ('Access denied.');

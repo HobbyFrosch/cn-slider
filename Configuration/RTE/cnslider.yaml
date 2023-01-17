@@ -3,7 +3,7 @@ imports:
   # Import default RTE config (for example)
   - { resource: "EXT:cnslider/Configuration/RTE/Default.yaml" }
   # Import the image plugin configuration
-  - { resource: "EXT:cnslider/Configuration/RTE/Plugin.yaml" }
+  #- { resource: "EXT:cnslider/Configuration/RTE/Plugin.yaml" }
 
 editor:
   config:

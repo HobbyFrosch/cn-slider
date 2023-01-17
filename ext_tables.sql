@@ -4,7 +4,7 @@
 
 CREATE TABLE tt_content (
 
-	tx_cnslider_height VARCHAR (255) NOT NULL,
+	tx_cnslider_height VARCHAR (255) NULL,
 	tx_cnslider_show_in_menu TINYINT NOT NULL DEFAULT 0,
 	tx_cnslider_nav_title VARCHAR (255) NULL,
 	tx_cnslider_video_url VARCHAR (255) NULL,
