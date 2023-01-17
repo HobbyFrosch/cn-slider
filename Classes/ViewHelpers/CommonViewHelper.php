@@ -20,9 +20,12 @@
 
 namespace HF\CNSlider\ViewHelpers;
 
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
+/**
+ *
+ */
 class CommonViewHelper extends AbstractViewHelper {
 
     /**
