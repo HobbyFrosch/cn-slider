@@ -21,18 +21,13 @@
 namespace HF\CNSlider\ViewHelpers;
 
 
-use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  *
  */
 class PowerMailViewHelper extends AbstractViewHelper {
-
-    /**
-     * @var ContentObjectRenderer
-     */
-    protected ContentObjectRenderer $contentObject;
 
     /**
      * @var bool
@@ -56,8 +51,9 @@ class PowerMailViewHelper extends AbstractViewHelper {
             'dontCheckPid' => 1,
         ];
 
+        $contentObject = GeneralUtility::makeInstance('TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer');
 
-        return $this->contentObject->cObjGetSingle('RECORDS', $configuration);
+        return $contentObject->cObjGetSingle('RECORDS', $configuration);
 
     }
 }
