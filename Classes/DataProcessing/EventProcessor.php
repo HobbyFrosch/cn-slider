@@ -67,8 +67,8 @@ class EventProcessor implements DataProcessorInterface {
                 $queryBuilder->expr()->eq('sys_file_reference.tablenames', $queryBuilder->createNamedParameter('tx_cnslider_event', PDO::PARAM_STR))
             )
             ->orderBy('tx_cnslider_event.sorting')
-            ->execute()
-            ->fetchAll();
+            ->executeQuery()
+            ->fetchAllAssociative();
 
         if(!empty($row) && is_array($row)) {
             foreach($row as $key => $value) {

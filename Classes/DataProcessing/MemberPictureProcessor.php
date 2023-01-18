@@ -1,6 +1,6 @@
 <?php
-namespace HF\CNSlider\DataProcessing;
 
+declare(strict_types=1);
 /*
  *  Copyright notice
  *
@@ -20,6 +20,9 @@ namespace HF\CNSlider\DataProcessing;
  * The TYPO3 project - inspiring people to share!
  */
 
+namespace HF\CNSlider\DataProcessing;
+
+use Doctrine\DBAL\Exception;
 use PDO;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
@@ -39,10 +42,11 @@ class MemberPictureProcessor implements DataProcessorInterface {
      * @param array $processorConfiguration The configuration of this processor
      * @param array $processedData Key/value store of processed data (e.g. to be passed to a Fluid View)
      * @return array the processed data as key/value store
+     * @throws Exception
      */
     public function process(ContentObjectRenderer $cObj, array $contentObjectConfiguration, array $processorConfiguration, array $processedData): array {
 
-        $items = array();
+        $items = [];
 
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('tx_cnslider_member_picture');
 
@@ -68,7 +72,8 @@ class MemberPictureProcessor implements DataProcessorInterface {
                 $queryBuilder->expr()->eq('sys_file_reference.tablenames', $queryBuilder->createNamedParameter('tx_cnslider_member_picture', PDO::PARAM_STR))
             )
             ->orderBy('tx_cnslider_member_picture.sorting')
-            ->executeQuery();
+            ->executeQuery()
+            ->fetchAllAssociative();
 
         if(!empty($row) && is_array($row)) {
             foreach ($row as $key => $value) {
