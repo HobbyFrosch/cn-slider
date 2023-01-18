@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: rkraemer
- * Date: 19.12.2017
- * Time: 09:14
- */
 
 return [
 
@@ -17,10 +11,6 @@ return [
         'delete' => 'deleted',
         'versioningWS' => TRUE,
         'origUid' => 't3_origuid',
-    ],
-
-    'interface' => [
-        'showRecordFieldList' => 'hidden, starttime, endtime, tx_cnslider_member_name, tx_cnslider_member_description, tx_cnslider_member_picture, tt_content_id'
     ],
 
     'columns' => [
