@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = [
+$EM_CONF['cnslider'] = [
     'title' => 'Chor-Nection Slider',
     'description' => 'Slider für die Chor-Nection Homepage',
     'category' => 'misc',
