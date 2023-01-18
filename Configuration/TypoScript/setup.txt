@@ -38,7 +38,7 @@ tt_content.gallerySlider = FLUIDTEMPLATE
 tt_content.gallerySlider {
     file = EXT:cnslider/Resources/Private/Templates/GallerySlider.html
     dataProcessing {
-        10 = HF\CNSlider\DataProcessing\MemberPictureProcessor12
+        10 = HF\CNSlider\DataProcessing\MemberPictureProcessor
     }
 }
 
