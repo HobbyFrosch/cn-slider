@@ -21,6 +21,7 @@
 namespace HF\CNSlider\ViewHelpers;
 
 
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -29,28 +30,32 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 class PowerMailViewHelper extends AbstractViewHelper {
 
     /**
+     * @var ContentObjectRenderer
+     */
+    protected ContentObjectRenderer $contentObject;
+
+    /**
      * @var bool
      */
     protected $escapeOutput = false;
 
-    /**
-     * @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer
-     * @inject
-     */
-    protected $contentObject;
+    public function initializeArguments() {
+        $this->registerArgument('uid', 'string', 'contact uid', true);
+    }
 
     /**
-     * Parse a content element
-     *
-     * @param int $uid UID of any content element
-     * @return string Parsed Content Element
+     * @return string
      */
-    public function render($uid) {
+    public function render() {
+
+        $uid = $this->arguments['uid'];
+
         $configuration = [
             'tables' => 'tt_content',
             'source' => (int)$uid,
             'dontCheckPid' => 1,
         ];
+
 
         return $this->contentObject->cObjGetSingle('RECORDS', $configuration);
 

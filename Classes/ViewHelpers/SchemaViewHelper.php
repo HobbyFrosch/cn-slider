@@ -34,12 +34,6 @@ class SchemaViewHelper extends AbstractViewHelper {
     protected $escapeOutput = false;
 
     /**
-     * @var ContentObjectRenderer
-     * @inject
-     */
-    protected $contentObject;
-
-    /**
      * Parse a content element
      *
      * @param string $content UID of any content element
