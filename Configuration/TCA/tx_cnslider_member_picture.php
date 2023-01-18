@@ -29,9 +29,9 @@ return [
             'config' => [
                 'type' => 'text',
                 'cols' => 40,
-                'rows' => 6
-            ],
-            'defaultExtras' => 'richtext[]'
+                'rows' => 6,
+                'enableRichtext' => true,
+            ]
         ],
 
         'tx_cnslider_member_picture' => [
@@ -47,19 +47,19 @@ return [
                 'eval' => 'required',
                 'overrideChildTca' => [
                     'types' => [
-                            '0' => [
-                                'showitem' => '
+                        '0' => [
+                            'showitem' => '
                                 --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                 --palette--;;filePalette'
-                            ],
-                                \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
-                                'showitem' => '
+                        ],
+                        \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                            'showitem' => '
                                 --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                 --palette--;;filePalette'
-                            ],
                         ],
                     ],
                 ],
+            ],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
 

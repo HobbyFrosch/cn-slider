@@ -30,9 +30,9 @@ return [
             'config' => [
                 'type' => 'text',
                 'cols' => 40,
-                'rows' => 6
+                'rows' => 6,
+                'enableRichtext' => true,
             ],
-            'defaultExtras' => 'richtext[]'
         ],
         'tx_cnslider_event_location_name' => [
             'label' => 'Name des Veranstaltungsorts',
@@ -77,18 +77,18 @@ return [
                 'overrideChildTca' => [
                     'types' => [
                         '0' => [
-                                'showitem' => '
+                            'showitem' => '
                                     --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                     --palette--;;filePalette'
-                            ],
-                            AbstractFile::FILETYPE_TEXT => [
-                                'showitem' => '
+                        ],
+                        AbstractFile::FILETYPE_TEXT => [
+                            'showitem' => '
                                     --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                                     --palette--;;filePalette'
-                            ],
                         ],
                     ],
                 ],
+            ],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
 

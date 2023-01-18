@@ -41,9 +41,9 @@ $tx_cnslider = [
         'config'        => [
             'type' => 'text',
             'cols' => 40,
-            'rows' => 6
-        ],
-        'defaultExtras' => 'richtext[]'
+            'rows' => 6,
+            'enableRichtext' => true
+        ]
     ],
 
     'tx_cnslider_member_picture' => [
